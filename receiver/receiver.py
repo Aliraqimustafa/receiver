@@ -22,7 +22,7 @@ def final_func(module_or_code):
     func = get_func(module_name , func_name)
     return func
 
-def create_app(app_typ = 'non-json'):
+def create_app(app_type = 'non-json'):
     app = Flask(__name__)
 
     module_or_code = input('You have module or code ? ')
@@ -37,7 +37,6 @@ def create_app(app_typ = 'non-json'):
     print(f'\n\n\n Now you can send post request : {public_url}\n\n\n')
     @app.route(f'/{subdomain}', methods=['POST'])
     def receive_data():
-        global app_typ
         data = request.get_json()
         result  = func(data)
         if app_type == 'json':
