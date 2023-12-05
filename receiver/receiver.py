@@ -22,7 +22,7 @@ def final_func(module_or_code):
     func = get_func(module_name , func_name)
     return func
 
-def create_app():
+def create_app(app_typ = 'non-json):
     app = Flask(__name__)
 
     module_or_code = input('You have module or code ? ')
@@ -39,9 +39,11 @@ def create_app():
     def receive_data():
         data = request.get_json()
         result  = func(data)
-        # response = {"result": result}
-        # response = jsonify(response), 200
-        response = result
+        if app_type == 'json':
+            response = {"result": result}
+            response = jsonify(response), 200
+        else:
+            response = result
         return response
     app.run(debug=False, port=__PORT__)
 
