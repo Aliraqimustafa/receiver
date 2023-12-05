@@ -22,7 +22,7 @@ def final_func(module_or_code):
     func = get_func(module_name , func_name)
     return func
 
-def create_app(app_typ = 'non-json):
+def create_app(app_typ = 'non-json'):
     app = Flask(__name__)
 
     module_or_code = input('You have module or code ? ')
