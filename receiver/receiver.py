@@ -39,8 +39,10 @@ def create_app():
     def receive_data():
         data = request.get_json()
         result  = func(data)
-        response = {"result": result}
-        return jsonify(response), 200
+        # response = {"result": result}
+        # response = jsonify(response), 200
+        response = result
+        return response
     app.run(debug=False, port=__PORT__)
 
 
