@@ -40,7 +40,8 @@ def create_app(app_type = 'non-json'):
         try:
             data = request.get_json()
         except:
-            data = request.get_data(as_text=True)
+            # data = request.get_data(as_text=True)
+            data = request.data
         result  = func(data)
         if app_type == 'json':
             response = {"result": result}
