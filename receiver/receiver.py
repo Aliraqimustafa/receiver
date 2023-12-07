@@ -37,7 +37,10 @@ def create_app(app_type = 'non-json'):
     print(f'\n\n\n Now you can send post request : {public_url}\n\n\n')
     @app.route(f'/{subdomain}', methods=['POST'])
     def receive_data():
-        data = request.get_json()
+        try:
+            data = request.get_json()
+        except:
+            data = request.get_data()
         result  = func(data)
         if app_type == 'json':
             response = {"result": result}
