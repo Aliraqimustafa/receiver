@@ -47,7 +47,7 @@ def create_app(app_type = 'non-json'):
             response = {"result": result}
             response = jsonify(response), 200
         else:
-            response = result
+            response = result , 200
         return response
     app.run(debug=False, port=__PORT__)
 
